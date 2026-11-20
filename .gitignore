@@ -2,5 +2,9 @@
 *.xcworkspace
 DerivedData/
 build/
+build-sim/
 .DS_Store
 xcuserdata/
+
+# XcodeGen이 project.yml에서 만든다
+Config/Info.plist

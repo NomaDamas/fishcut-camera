@@ -1,0 +1,40 @@
+name: FishcutCamera
+options:
+  bundleIdPrefix: com.seungwonme.fishcut
+  deploymentTarget:
+    iOS: "26.0"
+settings:
+  base:
+    SWIFT_VERSION: "5.0"
+    CODE_SIGN_STYLE: Automatic
+targets:
+  FishcutCamera:
+    type: application
+    platform: iOS
+    sources: [Sources]
+    scheme:
+      testTargets: [FishcutCameraUITests]
+    info:
+      path: Config/Info.plist
+      properties:
+        UIFileSharingEnabled: true
+    settings:
+      base:
+        PRODUCT_BUNDLE_IDENTIFIER: com.seungwonme.fishcut.camera
+        GENERATE_INFOPLIST_FILE: YES
+        INFOPLIST_KEY_CFBundleDisplayName: Fishcut Camera
+        INFOPLIST_KEY_UILaunchScreen_Generation: YES
+        INFOPLIST_KEY_UISupportedInterfaceOrientations: UIInterfaceOrientationLandscapeRight
+        INFOPLIST_KEY_NSCameraUsageDescription: 16:9와 9:16 영상을 동시에 녹화하려고 카메라를 사용합니다.
+        INFOPLIST_KEY_NSMicrophoneUsageDescription: 두 영상에 같은 소리를 넣으려고 마이크를 사용합니다.
+        INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace: YES
+  FishcutCameraUITests:
+    type: bundle.ui-testing
+    platform: iOS
+    sources: [UITests]
+    dependencies:
+      - target: FishcutCamera
+    settings:
+      base:
+        GENERATE_INFOPLIST_FILE: YES
+        PRODUCT_BUNDLE_IDENTIFIER: com.seungwonme.fishcut.camera.uitests
